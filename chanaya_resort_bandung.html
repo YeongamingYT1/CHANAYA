@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanaya Resort Bandung | Forest of Dreams in Dago Giri</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#193A2A',
+                        'deep-green': '#10281D',
+                        moss: '#65745A',
+                        cream: '#F4F0E7',
+                        'warm-white': '#FAF9F5',
+                        terracotta: '#A86645',
+                        charcoal: '#242622'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom smooth scrollbar and utilities */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF9F5;
+            color: #242622;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(16, 40, 29, 0.45), rgba(25, 58, 42, 0.65)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+        }
+        .glass-panel {
+            background: rgba(25, 58, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-warm-white text-charcoal antialiased selection:bg-moss selection:text-white">
+
+    <!-- Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-deep-green/90 backdrop-blur-md text-warm-white py-4 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="font-serif text-2xl tracking-wider font-bold text-cream">CHANAYA</span>
+                <span class="text-xs uppercase tracking-widest px-2 py-0.5 bg-moss/40 rounded text-cream/90 hidden sm:inline-block">Dago Giri</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#stay" class="hover:text-terracotta transition-colors">Stay</a>
+                <a href="#experience" class="hover:text-terracotta transition-colors">Experience</a>
+                <a href="#dining" class="hover:text-terracotta transition-colors">Dining</a>
+                <a href="#gallery" class="hover:text-terracotta transition-colors">Gallery</a>
+                <a href="#reviews" class="hover:text-terracotta transition-colors">Reviews</a>
+                <a href="#faq" class="hover:text-terracotta transition-colors">FAQ</a>
+                <a href="#contact" class="hover:text-terracotta transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="https://wa.me/6281120067779?text=Halo%20Chanaya%20Resort,%20saya%20ingin%20bertanya%20mengenai%20reservasi" target="_blank" class="px-4 py-2 border border-cream/30 rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-cream hover:text-deep-green transition-all">
+                    <i class="fab fa-whatsapp mr-1.5"></i> WhatsApp
+                </a>
+                <a href="#booking-bar" onclick="focusBooking()" class="px-5 py-2.5 bg-terracotta text-white rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-terracotta/90 transition-all shadow-md">
+                    Check Availability
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-cream focus:outline-none p-2" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-deep-green border-t border-forest/50 shadow-2xl py-6 px-6 transition-all">
+            <div class="flex flex-col space-y-4 text-base font-medium">
+                <a href="#stay" class="mobile-link hover:text-terracotta">Stay</a>
+                <a href="#experience" class="mobile-link hover:text-terracotta">Experience</a>
+                <a href="#dining" class="mobile-link hover:text-terracotta">Dining</a>
+                <a href="#gallery" class="mobile-link hover:text-terracotta">Gallery</a>
+                <a href="#reviews" class="mobile-link hover:text-terracotta">Reviews</a>
+                <a href="#faq" class="mobile-link hover:text-terracotta">FAQ</a>
+                <a href="#contact" class="mobile-link hover:text-terracotta">Contact</a>
+                <div class="pt-4 flex flex-col space-y-3 border-t border-forest">
+                    <a href="https://wa.me/6281120067779" target="_blank" class="text-center py-3 border border-cream/30 rounded-full text-sm font-semibold">
+                        <i class="fab fa-whatsapp mr-1.5"></i> Chat via WhatsApp
+                    </a>
+                    <a href="#booking-bar" onclick="focusBooking()" class="text-center py-3 bg-terracotta text-white rounded-full text-sm font-semibold">
+                        Check Availability
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen hero-bg flex items-center justify-center text-center px-4 pt-20 pb-16">
+        <div class="max-w-4xl mx-auto space-y-6 text-warm-white">
+            <span class="inline-block px-4 py-1.5 bg-moss/60 backdrop-blur-sm rounded-full text-xs uppercase tracking-widest font-semibold text-cream">
+                Forest of Dreams · Dago Giri, Bandung
+            </span>
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight">
+                Escape to Your <br/><span class="italic font-normal text-cream/95">Forest of Dreams</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-cream/90 max-w-2xl mx-auto font-light leading-relaxed">
+                Stay among the trees, slow down, and discover a different kind of getaway where you can Eat, Dream & Be Beyond.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#booking-bar" onclick="focusBooking()" class="w-full sm:w-auto px-8 py-4 bg-terracotta text-white rounded-full font-semibold uppercase tracking-wider text-sm hover:bg-terracotta/90 transition shadow-lg">
+                    Check Availability
+                </a>
+                <a href="#stay" class="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-semibold uppercase tracking-wider text-sm hover:bg-white/20 transition">
+                    Explore Accommodations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Booking Bar -->
+    <div id="booking-bar" class="relative z-30 max-w-5xl mx-auto px-4 -mt-16 sm:-mt-20">
+        <div class="bg-forest text-warm-white rounded-2xl shadow-2xl p-6 sm:p-8 border border-moss/40">
+            <form id="booking-form" onsubmit="handleBooking(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-cream/80 mb-2 font-semibold">Check-in</label>
+                    <div class="relative">
+                        <input type="date" id="checkin-date" required class="w-full bg-deep-green border border-moss/50 rounded-xl px-4 py-3 text-sm text-warm-white focus:outline-none focus:border-terracotta">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-cream/80 mb-2 font-semibold">Check-out</label>
+                    <div class="relative">
+                        <input type="date" id="checkout-date" required class="w-full bg-deep-green border border-moss/50 rounded-xl px-4 py-3 text-sm text-warm-white focus:outline-none focus:border-terracotta">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-cream/80 mb-2 font-semibold">Guests</label>
+                    <select id="guest-count" class="w-full bg-deep-green border border-moss/50 rounded-xl px-4 py-3 text-sm text-warm-white focus:outline-none focus:border-terracotta">
+                        <option value="2">2 Adults (Couple)</option>
+                        <option value="3">3 Guests (Treehouse)</option>
+                        <option value="4">4 Guests (Family)</option>
+                        <option value="6">6+ Guests (Group)</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-3.5 px-6 rounded-xl text-sm uppercase tracking-wider transition shadow-md flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Check Availability</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Experience-First Section -->
+    <section id="experience-first" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-xs uppercase tracking-widest text-terracotta font-bold">Curated Sanctuary</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-deep-green">More Than a Stay</h2>
+            <p class="text-charcoal/80 text-base sm:text-lg">
+                Immerse yourself in a lifestyle destination designed to connect you with nature, culinary mastery, and soulful creativity.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Stay Card -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md bg-forest text-warm-white p-8 flex flex-col justify-between min-h-[380px] transition-transform duration-300 hover:-translate-y-1">
+                <div class="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" alt="Stay" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10">
+                    <span class="text-xs uppercase tracking-widest bg-moss/80 px-3 py-1 rounded-full text-cream">Accommodation</span>
+                </div>
+                <div class="relative z-10 space-y-3">
+                    <h3 class="font-serif text-2xl font-bold">Stay</h3>
+                    <p class="text-sm text-cream/90 font-light">Unconventional treehouses, forest tents, and lodges nestled in the Dago Giri canopy.</p>
+                    <a href="#stay" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-cream hover:text-terracotta pt-2">
+                        Explore Rooms <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Eat Card -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md bg-forest text-warm-white p-8 flex flex-col justify-between min-h-[380px] transition-transform duration-300 hover:-translate-y-1">
+                <div class="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Eat" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10">
+                    <span class="text-xs uppercase tracking-widest bg-moss/80 px-3 py-1 rounded-full text-cream">Dining</span>
+                </div>
+                <div class="relative z-10 space-y-3">
+                    <h3 class="font-serif text-2xl font-bold">Eat</h3>
+                    <p class="text-sm text-cream/90 font-light">Taste authentic Nusantara heritage flavours and modern creations at Soeji Dining & Rumpun.</p>
+                    <a href="#dining" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-cream hover:text-terracotta pt-2">
+                        Discover Dining <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Explore Card -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md bg-forest text-warm-white p-8 flex flex-col justify-between min-h-[380px] transition-transform duration-300 hover:-translate-y-1">
+                <div class="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80" alt="Explore" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10">
+                    <span class="text-xs uppercase tracking-widest bg-moss/80 px-3 py-1 rounded-full text-cream">Nature & Wildlife</span>
+                </div>
+                <div class="relative z-10 space-y-3">
+                    <h3 class="font-serif text-2xl font-bold">Explore</h3>
+                    <p class="text-sm text-cream/90 font-light">Wander through our Mini Zoo, forest trails, and pet-friendly spaces in crisp mountain air.</p>
+                    <a href="#experience" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-cream hover:text-terracotta pt-2">
+                        View Experiences <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Create Card -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-md bg-forest text-warm-white p-8 flex flex-col justify-between min-h-[380px] transition-transform duration-300 hover:-translate-y-1">
+                <div class="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Create" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10">
+                    <span class="text-xs uppercase tracking-widest bg-moss/80 px-3 py-1 rounded-full text-cream">Lifestyle Hub</span>
+                </div>
+                <div class="relative z-10 space-y-3">
+                    <h3 class="font-serif text-2xl font-bold">Create</h3>
+                    <p class="text-sm text-cream/90 font-light">Join craft workshops, intimate weddings, creative events, and wellness sessions.</p>
+                    <a href="#experience" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-cream hover:text-terracotta pt-2">
+                        Learn More <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section id="stay" class="py-24 bg-cream/60 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div class="space-y-4 max-w-2xl">
+                    <span class="text-xs uppercase tracking-widest text-terracotta font-bold">Unconventional Stays</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-deep-green">Your Forest Sanctuary</h2>
+                    <p class="text-charcoal/80 text-base">
+                        Choose from our bespoke collection of treehouses and luxury forest tents, each equipped with private thermal baths and scenic nature views.
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="https://wa.me/6281120067779?text=Halo%20Chanaya%20Resort,%20saya%20ingin%20mengetahui%20ketersediaan%20kamar" target="_blank" class="inline-flex items-center space-x-2 text-deep-green font-semibold hover:text-terracotta transition">
+                        <span>Check All Room Availability</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Room 1: Treehouse -->
+                <div class="bg-warm-white rounded-2xl overflow-hidden shadow-lg border border-moss/20 flex flex-col justify-between group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" alt="Treehouse" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-deep-green text-warm-white text-xs uppercase tracking-widest px-3 py-1 rounded-full font-medium">Treehouse Couple</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs text-moss font-semibold uppercase tracking-wider">
+                                <span>60 m² · Queen Bed</span>
+                                <span>2-3 Guests</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-deep-green">Treehouse</h3>
+                            <p class="text-sm text-charcoal/80 font-light">Elevated amongst the tree canopy featuring a private hot-water jacuzzi and panoramic Dago Giri views.</p>
+                        </div>
+                        <div class="pt-4 border-t border-moss/20 flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-terracotta">Private Jacuzzi</span>
+                            <button onclick="openRoomModal('Treehouse', '60 m² · Queen Bed · 2-3 Guests', 'Elevated amongst the tree canopy featuring a private hot-water jacuzzi and panoramic Dago Giri views.', 'https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80', 'Private hot-water jacuzzi, Breakfast for 2, Queen-size bed, Balcony with forest view, Wi-Fi, Coffee & Tea maker')" class="px-4 py-2 bg-forest text-warm-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-terracotta transition">
+                                View Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 2: Forest Tent -->
+                <div class="bg-warm-white rounded-2xl overflow-hidden shadow-lg border border-moss/20 flex flex-col justify-between group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80" alt="Forest Tent" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-deep-green text-warm-white text-xs uppercase tracking-widest px-3 py-1 rounded-full font-medium">Forest Tent Couple</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs text-moss font-semibold uppercase tracking-wider">
+                                <span>60 m² · King Bed</span>
+                                <span>2-4 Guests</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-deep-green">Forest Tent</h3>
+                            <p class="text-sm text-charcoal/80 font-light">Luxury glamping experience in nature with a private hot-water onsen and premium comfort amenities.</p>
+                        </div>
+                        <div class="pt-4 border-t border-moss/20 flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-terracotta">Private Onsen</span>
+                            <button onclick="openRoomModal('Forest Tent', '60 m² · King Bed · 2-4 Guests', 'Luxury glamping experience in nature with a private hot-water onsen and premium comfort amenities.', 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80', 'Private hot-water onsen, King-size bed, Breakfast included, Glamping lounge deck, En-suite bathroom, Wi-Fi')" class="px-4 py-2 bg-forest text-warm-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-terracotta transition">
+                                View Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 3: Mongolian Family / Into the Woods -->
+                <div class="bg-warm-white rounded-2xl overflow-hidden shadow-lg border border-moss/20 flex flex-col justify-between group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Mongolian Family" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-deep-green text-warm-white text-xs uppercase tracking-widest px-3 py-1 rounded-full font-medium">Mongolian Family</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs text-moss font-semibold uppercase tracking-wider">
+                                <span>200 m² · 2 Camping Grounds</span>
+                                <span>4-8 Guests</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-deep-green">Into The Woods</h3>
+                            <p class="text-sm text-charcoal/80 font-light">Spacious Mongolian yurt setup designed for families or groups, complete with private forest jacuzzi.</p>
+                        </div>
+                        <div class="pt-4 border-t border-moss/20 flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-terracotta">Private Jacuzzi</span>
+                            <button onclick="openRoomModal('Into The Woods (Mongolian Family)', '200 m² · 2 Camping Grounds · 4-8 Guests', 'Spacious Mongolian yurt setup designed for families or groups, complete with private forest jacuzzi.', 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80', 'Private forest jacuzzi, 2 camping grounds, Breakfast for 4+, Spacious living area, Family-friendly amenities')" class="px-4 py-2 bg-forest text-warm-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-terracotta transition">
+                                View Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 4: Safari Treehouse -->
+                <div class="bg-warm-white rounded-2xl overflow-hidden shadow-lg border border-moss/20 flex flex-col justify-between group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Safari Treehouse" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-deep-green text-warm-white text-xs uppercase tracking-widest px-3 py-1 rounded-full font-medium">Safari Treehouse</span>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs text-moss font-semibold uppercase tracking-wider">
+                                <span>23 m² · Balcony</span>
+                                <span>2-3 Guests</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-deep-green">Safari Treehouse</h3>
+                            <p class="text-sm text-charcoal/80 font-light">Cozy safari-themed treehouse featuring a private outdoor plunge pool and complimentary mini zoo access.</p>
+                        </div>
+                        <div class="pt-4 border-t border-moss/20 flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-terracotta">Outdoor Plunge Pool</span>
+                            <button onclick="openRoomModal('Safari Treehouse', '23 m² · Balcony · 2-3 Guests', 'Cozy safari-themed treehouse featuring a private outdoor plunge pool and complimentary mini zoo access.', 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80', 'Private outdoor plunge pool, Scenic balcony, Free mini zoo access, Breakfast for 2, Premium toiletries')" class="px-4 py-2 bg-forest text-warm-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-terracotta transition">
+                                View Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof & Reviews Section -->
+    <section id="reviews" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-forest text-warm-white rounded-3xl p-8 sm:p-16 relative overflow-hidden shadow-xl">
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-moss/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-4 space-y-6">
+                    <span class="text-xs uppercase tracking-widest bg-moss/60 px-3.5 py-1.5 rounded-full text-cream">Guest Stories</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold">Loved by Travelers Worldwide</h2>
+                    <p class="text-cream/80 text-sm font-light leading-relaxed">
+                        Discover why couples, families, and experience seekers rate our forest sanctuary among the finest stays in Bandung.
+                    </p>
+                    <div class="pt-2">
+                        <div class="flex items-center space-x-2 text-amber-400 text-xl mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="text-2xl font-bold font-serif text-cream">4.9 / 5.0</div>
+                        <p class="text-xs text-cream/70">Based on 1,500+ verified guest reviews</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Review 1 -->
+                    <div class="bg-deep-green/70 border border-moss/40 p-6 sm:p-8 rounded-2xl space-y-4">
+                        <div class="text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-cream/90 text-sm italic font-light">
+                            "The private hot-water jacuzzi in the treehouse overlooking the misty Dago forest was magical. Unmatched romantic staycation in Bandung!"
+                        </p>
+                        <div>
+                            <h4 class="font-semibold text-sm text-warm-white">Stephanie & Kevin</h4>
+                            <span class="text-xs text-cream/60">Google Review · Couple Traveler</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-deep-green/70 border border-moss/40 p-6 sm:p-8 rounded-2xl space-y-4">
+                        <div class="text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-cream/90 text-sm italic font-light">
+                            "Our kids absolutely loved the Mini Zoo and exploring the forest paths. Soeji Dining served incredible Nusantara dishes too. Highly recommended for families."
+                        </p>
+                        <div>
+                            <h4 class="font-semibold text-sm text-warm-white">Dr. Hendra Utama & Family</h4>
+                            <span class="text-xs text-cream/60">TripAdvisor · Family Stay</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Storytelling Grid -->
+    <section id="gallery" class="py-24 bg-cream/40 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-widest text-terracotta font-bold">Visual Editorial</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-deep-green">Wake Up Somewhere Different</h2>
+                <p class="text-charcoal/80 text-base">A glimpse into the serene atmospheres, architectural beauty, and natural wonders waiting for you.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-lg group">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80" alt="Forest Canopy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-green/80 via-transparent to-transparent flex items-end p-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-cream/80">Dago Giri Sanctuary</span>
+                            <h3 class="font-serif text-2xl text-warm-white font-bold">Immersed in Lush Greenery</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-lg group">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" alt="Treehouse Jacuzzi" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-green/80 via-transparent to-transparent flex items-end p-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-cream/80">Private Relaxation</span>
+                            <h3 class="font-serif text-xl text-warm-white font-bold">Treehouse Jacuzzi</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-lg group">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Soeji Dining" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-green/80 via-transparent to-transparent flex items-end p-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-cream/80">Culinary Hub</span>
+                            <h3 class="font-serif text-xl text-warm-white font-bold">Soeji Dining & Rumpun</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-lg group">
+                    <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80" alt="Mini Zoo and Wildlife" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-green/80 via-transparent to-transparent flex items-end p-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-cream/80">Family Experience</span>
+                            <h3 class="font-serif text-2xl text-warm-white font-bold">Mini Zoo & Forestscape</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Mini Zoo, Dining, Wellness, Workshop) -->
+    <section id="experience" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-xs uppercase tracking-widest text-terracotta font-bold">Lifestyle & Activities</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-deep-green">Explore Chanaya</h2>
+            <p class="text-charcoal/80 text-base">
+                Discover a rich ecosystem of activities, wellness moments, creative workshops, and remarkable venues.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-warm-white border border-moss/20 rounded-2xl p-8 space-y-4 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-forest text-warm-white rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-tree"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-deep-green">Mini Zoo & Forestscape</h3>
+                <p class="text-sm text-charcoal/80 font-light leading-relaxed">
+                    Interact safely with friendly animals, pet-friendly forest trails, and children's outdoor play zones surrounded by pine trees.
+                </p>
+            </div>
+
+            <div id="dining" class="bg-warm-white border border-moss/20 rounded-2xl p-8 space-y-4 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-forest text-warm-white rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-deep-green">Soeji Dining & Rumpun</h3>
+                <p class="text-sm text-charcoal/80 font-light leading-relaxed">
+                    Culinary journeys featuring authentic Nusantara heritage recipes, artisanal coffee, and a creative gathering hub for food enthusiasts.
+                </p>
+            </div>
+
+            <div class="bg-warm-white border border-moss/20 rounded-2xl p-8 space-y-4 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-forest text-warm-white rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-spa"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-deep-green">Wellness & Spa</h3>
+                <p class="text-sm text-charcoal/80 font-light leading-relaxed">
+                    Rejuvenate body and soul with private hot springs, mountain wellness sessions, relaxing massage treatments, and fresh air meditation.
+                </p>
+            </div>
+
+            <div class="bg-warm-white border border-moss/20 rounded-2xl p-8 space-y-4 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-forest text-warm-white rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-deep-green">Creative Workshop</h3>
+                <p class="text-sm text-charcoal/80 font-light leading-relaxed">
+                    Participate in curated artisanal workshops, craft sessions, and botanical classes designed to awaken your inner creativity.
+                </p>
+            </div>
+
+            <div class="bg-warm-white border border-moss/20 rounded-2xl p-8 space-y-4 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-forest text-warm-white rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-deep-green">Events & Venues</h3>
+                <p class="text-sm text-charcoal/80 font-light leading-relaxed">
+                    Host unforgettable intimate weddings, private celebrations, corporate retreats, and artistic gatherings in breathtaking forest venues.
+                </p>
+            </div>
+
+            <div class="bg-warm-white border border-moss/20 rounded-2xl p-8 space-y-4 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-forest text-warm-white rounded-xl flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-deep-green">Nature Escapes</h3>
+                <p class="text-sm text-charcoal/80 font-light leading-relaxed">
+                    Guided morning hikes, botanical walks, bonfire nights under the stars, and photography tours around Dago Giri highlands.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-cream/50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto space-y-12">
+            <div class="text-center space-y-4">
+                <span class="text-xs uppercase tracking-widest text-terracotta font-bold">Got Questions?</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-deep-green">Frequently Asked Questions</h2>
+                <p class="text-charcoal/80 text-base">Find essential details about your upcoming stay at Chanaya Resort Bandung.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-warm-white border border-moss/20 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-5 text-left font-semibold text-deep-green flex items-center justify-between focus:outline-none">
+                        <span class="text-base sm:text-lg">Where is Chanaya Resort located?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 pb-6 text-sm text-charcoal/80 font-light leading-relaxed">
+                        Chanaya Resort is located at Jl. Dago Giri No.102, Mekarwangi, Kec. Lembang, Kabupaten Bandung Barat, Jawa Barat 40391. Nestled right in the scenic highlands of Dago Giri.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-warm-white border border-moss/20 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-5 text-left font-semibold text-deep-green flex items-center justify-between focus:outline-none">
+                        <span class="text-base sm:text-lg">What types of accommodation are available?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 pb-6 text-sm text-charcoal/80 font-light leading-relaxed">
+                        We offer Treehouse with private jacuzzi, Forest Tent with private hot-water onsen, Mongolian Family lodges (Into The Woods), and Safari Treehouse with private outdoor plunge pools.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-warm-white border border-moss/20 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-5 text-left font-semibold text-deep-green flex items-center justify-between focus:outline-none">
+                        <span class="text-base sm:text-lg">Is breakfast included in the reservation?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 pb-6 text-sm text-charcoal/80 font-light leading-relaxed">
+                        Yes, daily breakfast for registered guests is included with all accommodation bookings, served fresh at Soeji Dining.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-warm-white border border-moss/20 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(4)" class="w-full px-6 py-5 text-left font-semibold text-deep-green flex items-center justify-between focus:outline-none">
+                        <span class="text-base sm:text-lg">Are children and pets welcome?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden px-6 pb-6 text-sm text-charcoal/80 font-light leading-relaxed">
+                        Children are warmly welcome with plenty of nature activities like our Mini Zoo. For pet policies, please contact our concierge via WhatsApp prior to arrival.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-warm-white border border-moss/20 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(5)" class="w-full px-6 py-5 text-left font-semibold text-deep-green flex items-center justify-between focus:outline-none">
+                        <span class="text-base sm:text-lg">How can I make a reservation or check availability?</span>
+                        <i id="faq-icon-5" class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="faq-content-5" class="hidden px-6 pb-6 text-sm text-charcoal/80 font-light leading-relaxed">
+                        You can use our interactive booking bar above or directly reach out to our reservation team via WhatsApp at +62 811-2006-7779 for prompt assistance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-forest text-warm-white text-center px-4 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto space-y-6 relative z-10">
+            <span class="text-xs uppercase tracking-widest text-cream/80 bg-moss/60 px-4 py-1.5 rounded-full inline-block">Your Sanctuary Awaits</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold">Your forest escape is waiting.</h2>
+            <p class="text-cream/90 max-w-xl mx-auto text-sm sm:text-base font-light">
+                Disconnect from the ordinary and immerse yourself in the natural tranquility of Dago Giri.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#booking-bar" onclick="focusBooking()" class="w-full sm:w-auto px-8 py-4 bg-terracotta text-white rounded-full font-semibold uppercase tracking-wider text-xs hover:bg-terracotta/90 transition shadow-lg">
+                    Check Availability
+                </a>
+                <a href="https://wa.me/6281120067779?text=Halo%20Chanaya%20Resort,%20saya%20ingin%20membuat%20reservasi" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-semibold uppercase tracking-wider text-xs transition border border-white/30 flex items-center justify-center space-x-2">
+                    <i class="fab fa-whatsapp text-base"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-deep-green text-warm-white pt-20 pb-12 border-t border-forest">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-forest">
+            <!-- Col 1: Brand -->
+            <div class="space-y-4">
+                <div class="font-serif text-2xl font-bold text-cream">CHANAYA RESORT</div>
+                <p class="text-xs text-cream/70 font-light leading-relaxed">
+                    A nature escape where you can Eat, Dream & Be Beyond. Experience the ultimate lifestyle resort nestled in the lush forests of Dago Giri, Bandung.
+                </p>
+                <div class="flex items-center space-x-3 text-cream text-lg">
+                    <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-forest flex items-center justify-center hover:bg-terracotta transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-forest flex items-center justify-center hover:bg-terracotta transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com" target="_blank" class="w-10 h-10 rounded-full bg-forest flex items-center justify-center hover:bg-terracotta transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Quick Links -->
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold text-cream">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-cream/80">
+                    <li><a href="#stay" class="hover:text-terracotta transition">Accommodations</a></li>
+                    <li><a href="#experience" class="hover:text-terracotta transition">Experiences & Mini Zoo</a></li>
+                    <li><a href="#dining" class="hover:text-terracotta transition">Soeji Dining</a></li>
+                    <li><a href="#gallery" class="hover:text-terracotta transition">Visual Gallery</a></li>
+                    <li><a href="#faq" class="hover:text-terracotta transition">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact Info -->
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold text-cream">Location & Contact</h4>
+                <div class="space-y-3 text-sm text-cream/80 font-light">
+                    <p class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-terracotta"></i>
+                        <span>Jl. Dago Giri No.102, Mekarwangi, Kec. Lembang, Kabupaten Bandung Barat, Jawa Barat 40391</span>
+                    </p>
+                    <p class="flex items-center space-x-3">
+                        <i class="fa-solid fa-phone text-terracotta"></i>
+                        <span>0811-2006-7779</span>
+                    </p>
+                    <p class="flex items-center space-x-3">
+                        <i class="fa-solid fa-envelope text-terracotta"></i>
+                        <span>stay@chanayaresort.com</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Col 4: Newsletter -->
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold text-cream">Forest Updates</h4>
+                <p class="text-xs text-cream/70 font-light">Subscribe to receive exclusive seasonal offers and event updates.</p>
+                <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                    <input type="email" required placeholder="Enter your email" class="w-full bg-forest border border-moss/50 rounded-xl px-4 py-2.5 text-sm text-warm-white placeholder:text-cream/40 focus:outline-none focus:border-terracotta">
+                    <button type="submit" class="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream/60">
+            <p>&copy; 2026 Chanaya Resort Bandung. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281120067779?text=Halo%20Chanaya%20Resort,%20saya%20ingin%20bertanya%20mengenai%20reservasi" target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition transform hover:scale-110" aria-label="WhatsApp Chat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Room Detail Modal -->
+    <div id="room-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-warm-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-moss/20 animate-in fade-in zoom-in duration-200">
+            <div class="relative h-72">
+                <img id="modal-img" src="" alt="Room" class="w-full h-full object-cover">
+                <button onclick="closeRoomModal()" class="absolute top-4 right-4 bg-deep-green/80 text-warm-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-terracotta transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-8 space-y-6">
+                <div>
+                    <span id="modal-tag" class="text-xs uppercase tracking-widest bg-forest/10 text-forest px-3 py-1 rounded-full font-semibold"></span>
+                    <h3 id="modal-title" class="font-serif text-3xl font-bold text-deep-green mt-2"></h3>
+                    <p id="modal-desc" class="text-charcoal/80 text-sm mt-3 font-light leading-relaxed"></p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-semibold text-xs uppercase tracking-wider text-moss">Key Features & Amenities</h4>
+                    <ul id="modal-amenities" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-charcoal/80"></ul>
+                </div>
+                <div class="pt-4 border-t border-moss/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span class="text-xs text-moss italic">Rates vary based on seasonal availability.</span>
+                    <a id="modal-wa-btn" href="#" target="_blank" class="w-full sm:w-auto px-6 py-3 bg-terracotta hover:bg-terracotta/90 text-white rounded-xl text-xs font-semibold uppercase tracking-wider transition text-center shadow-md">
+                        Book via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 hidden bg-deep-green text-warm-white px-6 py-4 rounded-2xl shadow-2xl border border-moss/40 flex items-center space-x-3 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-msg" class="text-sm font-medium"></span>
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Set default dates for booking bar
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const dayAfter = new Date(today);
+        dayAfter.setDate(dayAfter.getDate() + 3);
+
+        document.getElementById('checkin-date').valueAsDate = tomorrow;
+        document.getElementById('checkout-date').valueAsDate = dayAfter;
+
+        function focusBooking() {
+            document.getElementById('checkin-date').focus();
+        }
+
+        // Booking Form Submission Handler
+        function handleBooking(e) {
+            e.preventDefault();
+            const checkin = document.getElementById('checkin-date').value;
+            const checkout = document.getElementById('checkout-date').value;
+            const guests = document.getElementById('guest-count').value;
+
+            const message = `Halo Chanaya Resort, saya ingin mengecek ketersediaan kamar untuk Check-in: ${checkin}, Check-out: ${checkout}, Jumlah Tamu: ${guests} orang. Mohon konfirmasinya.`;
+            const waUrl = `https://wa.me/6281120067779?text=${encodeURIComponent(message)}`;
+            
+            showToast('Mengarahkan ke WhatsApp Concierge...');
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+            }, 800);
+        }
+
+        // Newsletter Handler
+        function handleNewsletter(e) {
+            e.preventDefault();
+            showToast('Terima kasih! Anda telah berlangganan newsletter Chanaya.');
+            e.target.reset();
+        }
+
+        // Room Modal Handler
+        function openRoomModal(title, tag, desc, img, amenitiesStr) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-tag').innerText = tag;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-img').src = img;
+            
+            const amenitiesList = document.getElementById('modal-amenities');
+            amenitiesList.innerHTML = '';
+            amenitiesStr.split(', ').forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-check text-terracotta mr-2"></i> ${item}`;
+                amenitiesList.appendChild(li);
+            });
+
+            const waMsg = `Halo Chanaya Resort, saya tertarik untuk melakukan reservasi untuk ${title}. Mohon informasi ketersediaan dan detailnya.`;
+            document.getElementById('modal-wa-btn').href = `https://wa.me/6281120067779?text=${encodeURIComponent(waMsg)}`;
+
+            document.getElementById('room-modal').classList.remove('hidden');
+        }
+
+        function closeRoomModal() {
+            document.getElementById('room-modal').classList.add('hidden');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
